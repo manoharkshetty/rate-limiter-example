@@ -82,4 +82,3 @@ func (i *slidingWindowImpl) updateRequestCount(identifier string, currentTime in
 		log.Println("error Adding new key", identifier)
 	}
 }
-

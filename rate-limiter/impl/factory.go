@@ -8,14 +8,14 @@ import (
 )
 
 type factory struct {
-	storage  storages.Storage
+	storage storages.Storage
 }
 
 //go:generate mockery -name=Factory -inpkg -case=underscore
 // Factory can return any implementation based on the parameters or configuration(feature flags)
 // Currently only implemented SlidingWindowImpl, Can be extended for leaky bucket, token etc
 type Factory interface {
-	Get(configMap  map[string]*config.Config) rate_limiter.RateLimiter
+	Get(configMap map[string]*config.Config) rate_limiter.RateLimiter
 }
 
 func NewFactory() Factory {
@@ -24,6 +24,6 @@ func NewFactory() Factory {
 	}
 }
 
-func (f *factory) Get(configMap  map[string]*config.Config) rate_limiter.RateLimiter  {
+func (f *factory) Get(configMap map[string]*config.Config) rate_limiter.RateLimiter {
 	return impl.NewSlidingWindowImpl(configMap, f.storage)
 }

@@ -6,7 +6,7 @@ import (
 )
 
 type QueueMap struct {
-	lock *sync.Mutex
+	lock   *sync.Mutex
 	queues map[string]Queue
 }
 
@@ -14,7 +14,7 @@ func NewQueueMap() *QueueMap {
 	return &QueueMap{&sync.Mutex{}, map[string]Queue{}}
 }
 
-func (q *QueueMap) Add(user string, timeStamp int64, expiryTime int64) error  {
+func (q *QueueMap) Add(user string, timeStamp int64, expiryTime int64) error {
 	queue := q.queues[user]
 	if queue == nil {
 		q.lock.Lock()
@@ -28,7 +28,7 @@ func (q *QueueMap) Add(user string, timeStamp int64, expiryTime int64) error  {
 	return nil
 }
 
-func (q *QueueMap) GetLastRequestTimeInWindow(user string, timeStamp int64) (int64, error)  {
+func (q *QueueMap) GetLastRequestTimeInWindow(user string, timeStamp int64) (int64, error) {
 	queue := q.queues[user]
 	if queue == nil {
 		return 0, nil
@@ -36,7 +36,7 @@ func (q *QueueMap) GetLastRequestTimeInWindow(user string, timeStamp int64) (int
 	return queue.LastUpdatedSince(timeStamp), nil
 }
 
-func (q *QueueMap) GetRequestCountInWindow(user string, timeStamp int64) (int64, error)  {
+func (q *QueueMap) GetRequestCountInWindow(user string, timeStamp int64) (int64, error) {
 	queue := q.queues[user]
 	if queue == nil {
 		return 0, nil
@@ -44,7 +44,7 @@ func (q *QueueMap) GetRequestCountInWindow(user string, timeStamp int64) (int64,
 	return queue.ItemsRecordedAfter(timeStamp), nil
 }
 
-func (q *QueueMap) expire(user string, timeStamp int64)  {
+func (q *QueueMap) expire(user string, timeStamp int64) {
 	defer DoPanicRecover()
 	queue := q.queues[user]
 	if queue == nil {

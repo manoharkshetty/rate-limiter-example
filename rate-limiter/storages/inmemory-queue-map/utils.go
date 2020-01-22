@@ -6,6 +6,6 @@ import (
 
 func DoPanicRecover() {
 	if r := recover(); r != nil {
-		log.Print( "panics_recover", r)
+		log.Print("panics_recover", r)
 	}
 }

@@ -7,7 +7,7 @@ import (
 )
 
 type queue struct {
-	lock *sync.Mutex
+	lock   *sync.Mutex
 	Values []int64
 }
 
@@ -55,7 +55,7 @@ func (q *queue) LastUpdatedSince(timeStamp int64) int64 {
 	return q.Values[index]
 }
 
-func (q *queue) searchNearestItem(timeStamp int64) int64  {
+func (q *queue) searchNearestItem(timeStamp int64) int64 {
 	index := 0
 	for _, val := range q.Values {
 		if val <= timeStamp {
@@ -65,4 +65,3 @@ func (q *queue) searchNearestItem(timeStamp int64) int64  {
 	}
 	return int64(index)
 }
-

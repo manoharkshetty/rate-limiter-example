@@ -17,6 +17,6 @@ type Storage interface {
 	GetRequestCountInWindow(user string, timeStamp int64) (int64, error)
 }
 
-func GetStorage() Storage  {
+func GetStorage() Storage {
 	return queueMap.NewQueueMap()
 }

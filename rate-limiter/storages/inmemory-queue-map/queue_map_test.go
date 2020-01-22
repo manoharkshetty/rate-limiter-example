@@ -6,11 +6,11 @@ import (
 	"time"
 )
 
-func Test_NewQueueMap(t *testing.T)  {
+func Test_NewQueueMap(t *testing.T) {
 	assert.NotNil(t, NewQueueMap())
 }
 
-func Test_Add(t *testing.T)  {
+func Test_Add(t *testing.T) {
 	store := NewQueueMap()
 	client := "client_1"
 	expireTime := time.Now().Add(-10 * time.Minute).Unix()
@@ -22,7 +22,7 @@ func Test_Add(t *testing.T)  {
 	assert.Equal(t, int64(1), count)
 }
 
-func Test_GetRequestCountInWindow(t *testing.T)  {
+func Test_GetRequestCountInWindow(t *testing.T) {
 	store := NewQueueMap()
 	client := "client_1"
 	timeNow := time.Now().Unix()
@@ -41,7 +41,7 @@ func Test_GetRequestCountInWindow(t *testing.T)  {
 	assert.Equal(t, int64(0), count)
 }
 
-func Test_GetLastRequestTimeInWindow(t *testing.T)  {
+func Test_GetLastRequestTimeInWindow(t *testing.T) {
 	store := NewQueueMap()
 	client := "client_1"
 	timeNow := time.Now().Unix()

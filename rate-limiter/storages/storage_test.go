@@ -5,6 +5,6 @@ import (
 	"testing"
 )
 
-func Test_GetStorage(t *testing.T)  {
+func Test_GetStorage(t *testing.T) {
 	assert.NotNil(t, GetStorage())
 }
