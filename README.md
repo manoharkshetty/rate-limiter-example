@@ -23,6 +23,12 @@ Project is modularised to have separate packages for api and rate-limiter
 
 * repo url: https://github.com/manoharkshetty/rate-limiter-example
 
+* We only use one dependency which is for testing. so you can just install them by go get. 
+ex: 
+```
+ go get github.com/stretchr/testify/... 
+```
+
 
 #### To Run the project:
 
