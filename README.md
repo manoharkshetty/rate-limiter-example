@@ -42,5 +42,16 @@ or
 
 Just click that cute green button if you have an IDE (goland) :)
 
+#### Test
+
+Once the app is up and running, you can access the api via 
+
+```
+http://localhost:8080/requester_a
+```
+
+Note: I know url param is not the right way to send the requester info. It should be part of request header. But since api is just to test the rate limiter I did not spend much time :)
+Also API layer does not have tests as the implementation is straight forward
+
 
 
