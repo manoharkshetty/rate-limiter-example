@@ -10,11 +10,11 @@ import (
 
 func main() {
 	conf := map[string]*config.Config{
-		"client_1": {
+		"requester_a": {
 			MaxReqAllowed:     5,
 			TimeIntervalInSec: 10,
 		},
-		"client_2": {
+		"requester_b": {
 			MaxReqAllowed:     5,
 			TimeIntervalInSec: 10,
 		},

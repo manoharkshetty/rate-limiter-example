@@ -1,7 +1,6 @@
 package inmemory_queue_map
 
 import (
-	"fmt"
 	"sync"
 )
 
@@ -23,7 +22,6 @@ func (q *QueueMap) Add(user string, timeStamp int64, expiryTime int64) error {
 		q.lock.Unlock()
 	}
 	queue.Enqueue(timeStamp)
-	fmt.Println(queue)
 	go q.expire(user, expiryTime)
 	return nil
 }
