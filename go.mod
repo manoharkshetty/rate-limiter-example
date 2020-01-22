@@ -1,1 +1,1 @@
-module "https://github.com/manoharkshetty/rate-limiter.git"
+module "https://github.com/manoharkshetty/rate-limiter-example.git"
