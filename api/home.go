@@ -23,7 +23,7 @@ func (handler HomeHandler) Handle(w http.ResponseWriter, r *http.Request) {
 	user := r.URL.Path[1:]
 	limitReached, tryAfter := handler.rateLimiter.IsLimitReached(context.Background(), user)
 	if limitReached {
-		outputJSON(w, http.StatusTooManyRequests, fmt.Sprintf("Try after %d", tryAfter))
+		outputJSON(w, http.StatusTooManyRequests, fmt.Sprintf("Try after %d second(s)", tryAfter))
 		return
 	}
 	outputJSON(w, http.StatusOK, "success")
